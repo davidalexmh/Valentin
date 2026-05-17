@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>¿Quieres ser mi Valentín?</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background: linear-gradient(135deg, #ffb6c1, #ffe4ec);
+        height:100vh;
+        overflow:hidden;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .container{
+        text-align:center;
+        position:relative;
+    }
+
+    .gif{
+        width:250px;
+        margin-bottom:20px;
+        border-radius:20px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    h1{
+        font-size:3rem;
+        color:#d63384;
+        margin-bottom:30px;
+    }
+
+    .buttons{
+        position:relative;
+        width:400px;
+        height:200px;
+        margin:auto;
+    }
+
+    button{
+        padding:15px 35px;
+        border:none;
+        border-radius:15px;
+        font-size:1.2rem;
+        cursor:pointer;
+        transition:0.2s;
+        position:absolute;
+    }
+
+    #yesBtn{
+        left:80px;
+        top:80px;
+        background:#ff4d88;
+        color:white;
+    }
+
+    #yesBtn:hover{
+        transform:scale(1.1);
+    }
+
+    #noBtn{
+        left:220px;
+        top:80px;
+        background:#666;
+        color:white;
+    }
+
+    /* Segunda pantalla */
+    .love-screen{
+        display:none;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        height:100vh;
+        width:100%;
+        position:absolute;
+        top:0;
+        left:0;
+        background:linear-gradient(135deg, #ff9ecf, #ffd6e8);
+        padding:20px;
+    }
+
+    .love-screen img{
+        width:300px;
+        border-radius:20px;
+        margin-bottom:25px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .love-screen h2{
+        font-size:2.2rem;
+        color:#b30059;
+        max-width:800px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Pantalla principal -->
+<div class="container" id="mainScreen">
+
+    <!-- CAMBIA EL src POR TU GIF -->
+    <img class="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="gif romántico">
+
+    <h1>¿Quieres ser mi Valentín?</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">SI</button>
+        <button id="noBtn">NO</button>
+    </div>
+</div>
+
+<!-- Segunda pantalla -->
+<div class="love-screen" id="loveScreen">
+
+    <!-- CAMBIA EL src POR OTRO GIF -->
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="gif amor">
+
+    <h2>
+        Principessa, te amo mucho,<br>
+        te espero para nuestra cita este 23 de mayo &lt;3
+    </h2>
+
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    const mainScreen = document.getElementById("mainScreen");
+    const loveScreen = document.getElementById("loveScreen");
+
+    // Botón NO escapa
+    noBtn.addEventListener("mouseover", () => {
+
+        const maxX = window.innerWidth - 120;
+        const maxY = window.innerHeight - 80;
+
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
+        noBtn.style.position = "fixed";
+    });
+
+    // Botón SI abre segunda pantalla
+    yesBtn.addEventListener("click", () => {
+        mainScreen.style.display = "none";
+        loveScreen.style.display = "flex";
+    });
+</script>
+
+</body>
+</html>
