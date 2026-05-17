@@ -21,7 +21,9 @@
         justify-content:center;
         align-items:center;
     }
-
+<audio id="music" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+</audio>
     .container{
         text-align:center;
         position:relative;
@@ -157,10 +159,14 @@
     });
 
     // Botón SI abre segunda pantalla
-    yesBtn.addEventListener("click", () => {
-        mainScreen.style.display = "none";
-        loveScreen.style.display = "flex";
-    });
+  yesBtn.addEventListener("click", () => {
+
+    const music = document.getElementById("music");
+    music.play();
+
+    mainScreen.style.display = "none";
+    loveScreen.style.display = "flex";
+});
 </script>
 
 </body>
